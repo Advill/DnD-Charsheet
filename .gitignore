@@ -1,0 +1,3 @@
+#gitignore file, this might not work so
+node_modules
+node_modules/**
