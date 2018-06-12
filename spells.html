@@ -5,6 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./sidebar.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 </head>
 
 <body>
@@ -15,10 +16,7 @@
         <input type="text" id="search">
         <input type="button" value="Search" onclick="search(document.getElementById('search').value)">
         <input type="button" value="Save" onclick="" style="float: right">
-        <table id="spelltable" style="width: 100%">
 
-
-        </table>
         <table style="width: 100%">
             <thead style="color:black">
                 <th>Name</th>
@@ -28,7 +26,13 @@
                 <th> </th>
             </thead>
         </table>
-        <iframe src="./listspells.html" id="list" style="border: 10; width: 80%; height: 50%; position: fixed"></iframe>
+
+        <table id="list" style="border: 10; width: 80%; height: 50%; position: fixed">
+            <tbody style="display:block; height:100%; overflow:auto">
+
+            </tbody>
+        </table>
+
         <div style='position:absolute; top:71%; bottom:0; overflow:auto;'>
             <table style="width: 100%">
                 <tr>
@@ -56,24 +60,22 @@
 
     <script>
 
-        var iframe = document.getElementById("list")
-        var table = document.getElementById("spelldata")
+        //var jsonObj = { spells: [] }
+        var table = document.getElementById("list")
 
-        var jsonObj = { spells: [] }
         $.getJSON('./tmp/data.json', function (data) {
-            var listspells = iframe.contentWindow.document.getElementById("listspells")
             $.each(data.spells, function (i, f) {
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
                     "<td class='col2'>" + f.type + "</td>" + "<td class='col3'>" + f.diceroll + "</td>" + "<td>" + f.description + "</td>" +
                     "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
-                $(tblRow).appendTo(listspells);
-                var tempJson = { "name": f.name, "type": f.type, "diceroll": f.diceroll, "description": f.description }
+                $("#list tbody").append(tblRow);
+                //var tempJson = { "name": f.name, "type": f.type, "diceroll": f.diceroll, "description": f.description }
                 /*jsonObj.spells[jsonObj.spells.length]["name"] = f.name
                 jsonObj.spells[jsonObj.spells.length]["type"] = f.type
                 jsonObj.spells[jsonObj.spells.length]["diceroll"] = f.diceroll
                 jsonObj.spells[jsonObj.spells.length]["description"] = f.description*/
-                jsonObj["spells"].push(tempJson)
-                console.log(jsonObj)
+                //jsonObj["spells"].push(tempJson)
+                //console.log(jsonObj)
                 //spells.push("name:f.name", "type:f.type", "diceroll:f.diceroll", "description:f.description")
             })
         })
@@ -98,6 +100,11 @@
             document.getElementById("diceroll").value = ""
             document.getElementById("description").value = ""
         }
+
+        function deleteRow(element) {
+            table.deleteRow(element.parentNode.parentNode.rowIndex);
+        }
+
         function search(name) {
             document.getElementById(name).scrollIntoView()
         }
