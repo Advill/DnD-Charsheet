@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./sidebar.css">
+</head>
+
+<body>
+    <div class="main2">
+        <h1>
+            <b>Spells</b>
+        </h1>
+        <input type="text" id="search">
+        <input type="button" value="Search" onclick="search(document.getElementById('search').value)">
+        <input type="button" value="Save" onclick="" style="float: right">
+        <table id="spelltable" style="width: 100%">
+
+
+        </table>
+        <table style="width: 100%">
+            <thead style="color:black">
+                <th>Name</th>
+                <th>Type</th>
+                <th>Dice Roll</th>
+                <th>Description</th>
+                <th> </th>
+            </thead>
+        </table>
+        <iframe src="./listspells.html" id="list" style="border: 10; width: 80%; height: 50%; position: fixed"></iframe>
+        <div style='position:absolute; top:71%; bottom:0; overflow:auto;'>
+            <table style="width: 100%">
+                <tr>
+                    <td>
+                        <input type="text" id="name">
+                    </td>
+                    <td>
+                        <input type="text" id="type">
+                    </td>
+                    <td>
+                        <input type="text" id="diceroll">
+                    </td>
+                    <td>
+                        <input type="text" id="description">
+                    </td>
+                    <td> </td>
+                </tr>
+            </table>
+            <br>
+            <input type="button" value="Add" onclick="addRow()">
+
+            <p id="demo"></p>
+        </div>
+    </div>
+
+    <script>
+
+        var iframe = document.getElementById("list")
+        var table = document.getElementById("spelldata")
+
+        var jsonObj = { spells: [] }
+        $.getJSON('./tmp/data.json', function (data) {
+            var listspells = iframe.contentWindow.document.getElementById("listspells")
+            $.each(data.spells, function (i, f) {
+                var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
+                    "<td class='col2'>" + f.type + "</td>" + "<td class='col3'>" + f.diceroll + "</td>" + "<td>" + f.description + "</td>" +
+                    "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
+                $(tblRow).appendTo(listspells);
+                var tempJson = { "name": f.name, "type": f.type, "diceroll": f.diceroll, "description": f.description }
+                /*jsonObj.spells[jsonObj.spells.length]["name"] = f.name
+                jsonObj.spells[jsonObj.spells.length]["type"] = f.type
+                jsonObj.spells[jsonObj.spells.length]["diceroll"] = f.diceroll
+                jsonObj.spells[jsonObj.spells.length]["description"] = f.description*/
+                jsonObj["spells"].push(tempJson)
+                console.log(jsonObj)
+                //spells.push("name:f.name", "type:f.type", "diceroll:f.diceroll", "description:f.description")
+            })
+        })
+
+
+        function addRow() {
+            var listtable = iframe.contentWindow.document.getElementById("listspells")
+            var row = listtable.insertRow(listtable.length)
+            var cell1 = row.insertCell(0)
+            cell1.innerHTML = document.getElementById("name").value
+            var cell2 = row.insertCell(1)
+            cell2.innerHTML = document.getElementById("type").value
+            var cell3 = row.insertCell(2)
+            cell3.innerHTML = document.getElementById("diceroll").value
+            var cell4 = row.insertCell(3)
+            cell4.innerHTML = document.getElementById("description").value
+            var cell5 = row.insertCell(4)
+            cell5.innerHTML = '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">'
+
+            document.getElementById("name").value = ""
+            document.getElementById("type").value = ""
+            document.getElementById("diceroll").value = ""
+            document.getElementById("description").value = ""
+        }
+        function search(name) {
+            document.getElementById(name).scrollIntoView()
+        }
+    </script>
+
+</body>
+
+</html>

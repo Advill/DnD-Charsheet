@@ -1,23 +1,15 @@
 {
-  "name": "charactersheet",
+  "name": "dnd",
   "version": "1.0.0",
-  "description": "app to simplify the creation and maintainance of a dnd-styled charactersheet",
-  "main": "index.js",
+  "description": "",
+  "main": "main.js",
   "scripts": {
-    "start": "electron .",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/advill/DnD-Charsheet.git"
+    "start": "electron ."
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/advill/DnD-Charsheet/issues"
-  },
-  "homepage": "https://github.com/advill/DnD-Charsheet#readme",
-  "devDependencies": {
-    "electron": "^2.0.0"
+  "dependencies": {
+    "electron": "^2.0.0",
+    "jsonfile": "^4.0.0"
   }
 }

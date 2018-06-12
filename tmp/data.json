@@ -1,0 +1,22 @@
+{
+    "spells": [
+        {
+            "name": "Eldritch Blast",
+            "type": "Damage",
+            "diceroll": "2d8",
+            "description": "Tons of Damage"
+        },
+        {
+            "name": "Fire Ball",
+            "type": "Damage",
+            "diceroll": "8d6",
+            "description": "Tons of Damage"
+        },
+        {
+            "name": "Thing",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        }
+    ]
+}
