@@ -42,13 +42,9 @@
   }
 
 .col1 {
-    width: 20%;
+    width: 150px;
 }
 
 .col2 {
-    width: 16%;
-}
-
-.col3 {
-    width: 30%;
+    width: 300px;
 }

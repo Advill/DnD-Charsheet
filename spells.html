@@ -19,15 +19,14 @@
 
         <table style="width: 100%">
             <thead style="color:black">
-                <th>Name</th>
-                <th>Type</th>
-                <th>Dice Roll</th>
+                <th class="col1">Name</th>
+                <th class="col1"> Type</th>
+                <th class="col1">Dice Roll</th>
                 <th>Description</th>
-                <th> </th>
             </thead>
         </table>
 
-        <table id="list" style="border: 10; width: 80%; height: 50%; position: fixed">
+        <table id="list" style="width: 100%; height: 50%; position: fixed">
             <tbody style="display:block; height:100%; overflow:auto">
 
             </tbody>
@@ -36,16 +35,16 @@
         <div style='position:absolute; top:71%; bottom:0; overflow:auto;'>
             <table style="width: 100%">
                 <tr>
-                    <td>
+                    <td class="col1">
                         <input type="text" id="name">
                     </td>
-                    <td>
+                    <td class="col1">
                         <input type="text" id="type">
                     </td>
-                    <td>
+                    <td class="col1">
                         <input type="text" id="diceroll">
                     </td>
-                    <td>
+                    <td class="col1">
                         <input type="text" id="description">
                     </td>
                     <td> </td>
@@ -66,7 +65,7 @@
         $.getJSON('./tmp/data.json', function (data) {
             $.each(data.spells, function (i, f) {
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
-                    "<td class='col2'>" + f.type + "</td>" + "<td class='col3'>" + f.diceroll + "</td>" + "<td>" + f.description + "</td>" +
+                    "<td class='col1'>" + f.type + "</td>" + "<td class='col1'>" + f.diceroll + "</td>" + "<td class='col2'>" + f.description + "</td>" +
                     "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
                 $("#list tbody").append(tblRow);
                 //var tempJson = { "name": f.name, "type": f.type, "diceroll": f.diceroll, "description": f.description }
@@ -82,8 +81,7 @@
 
 
         function addRow() {
-            var listtable = iframe.contentWindow.document.getElementById("listspells")
-            var row = listtable.insertRow(listtable.length)
+            var row = table.insertRow(table.length)
             var cell1 = row.insertCell(0)
             cell1.innerHTML = document.getElementById("name").value
             var cell2 = row.insertCell(1)
