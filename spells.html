@@ -10,7 +10,7 @@
 
 <body>
     <div class="main2">
-        <h1>
+        <h1 id="title">
             <b>Spells</b>
         </h1>
         <input type="text" id="search">
@@ -35,7 +35,7 @@
         <div style='position:absolute; top:71%; bottom:0; overflow:auto;'>
             <table style="width: 100%">
                 <tr>
-                    <td class="col1">
+                    <td style="width:150px">
                         <input type="text" id="name">
                     </td>
                     <td class="col1">
@@ -79,10 +79,22 @@
             })
         })
 
-
+        // function to add a row to the table
         function addRow() {
+            // tests if the inputs are empty
+            if (document.getElementById("name").value === "" ||
+                document.getElementById("type").value === "" ||
+                document.getElementById("diceroll").value === "" ||
+                document.getElementById("description").value === "") {
+                return
+            }
+            var tblRow = "<tr>" + "<td class='col1'>" + document.getElementById("name").value + "</td>" +
+                "<td class='col1'>" + document.getElementById("type").value + "</td>" + "<td class='col1'>" +
+                document.getElementById("diceroll").value + "</td>" + "<td class='col2'>" + document.getElementById("description").value + "</td>" +
+                "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
             var row = table.insertRow(table.length)
-            var cell1 = row.insertCell(0)
+            row.innerHTML = tblRow
+            /*var cell1 = row.insertCell(0)
             cell1.innerHTML = document.getElementById("name").value
             var cell2 = row.insertCell(1)
             cell2.innerHTML = document.getElementById("type").value
@@ -91,20 +103,28 @@
             var cell4 = row.insertCell(3)
             cell4.innerHTML = document.getElementById("description").value
             var cell5 = row.insertCell(4)
-            cell5.innerHTML = '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">'
+            cell5.innerHTML = '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">'*/
 
+            // resets the values in the input boxes
             document.getElementById("name").value = ""
             document.getElementById("type").value = ""
             document.getElementById("diceroll").value = ""
             document.getElementById("description").value = ""
         }
 
+        // function to delete a row
         function deleteRow(element) {
             table.deleteRow(element.parentNode.parentNode.rowIndex);
         }
 
+        // function to search - scrolls to searched term
         function search(name) {
-            document.getElementById(name).scrollIntoView()
+            for (var i = 0, row; row = table.rows[i], i < table.rows.length; i++) {
+                if (row.cells[0].innerText === name) {
+                    row.cells[0].scrollIntoView()
+                    // todo - add highlight to row that is found
+                }
+            }
         }
     </script>
 

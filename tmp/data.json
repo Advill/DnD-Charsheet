@@ -17,6 +17,78 @@
             "type": "Nothing",
             "diceroll": "0",
             "description": "No Damage"
+        },
+        {
+            "name": "Thing1",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing1",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing2",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing3",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing4",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing5",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing6",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing7",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing8",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing9",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing10",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
+        },
+        {
+            "name": "Thing11",
+            "type": "Nothing",
+            "diceroll": "0",
+            "description": "No Damage"
         }
     ]
 }
