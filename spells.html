@@ -15,7 +15,7 @@
         </h1>
         <input type="text" id="search">
         <input type="button" value="Search" onclick="search(document.getElementById('search').value)">
-        <input type="button" value="Save" onclick="" style="float: right">
+        <input type="button" value="Save" onclick="save(document)" style="float: right">
 
         <table style="width: 100%">
             <thead style="color:black">
@@ -126,6 +126,16 @@
                 }
             }
         }
+
+        //function to save files to the filesystem
+        function save() {
+            var path = dialog.showSaveDialog(browserWindow, table, function(path) {
+               var stream = fs.createWriteStream(path);
+                 stream.once('open', function(fd) {
+                 stream.write(table);
+                });
+            });
+        };
     </script>
 
 </body>

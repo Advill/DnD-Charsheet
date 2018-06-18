@@ -1,4 +1,8 @@
+const electron = require('electron');
 const {app, BrowserWindow, Menu} = require("electron");
+const remote = electron.remote;
+const fs = require('fs');
+const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
 
