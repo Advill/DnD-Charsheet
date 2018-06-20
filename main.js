@@ -46,4 +46,7 @@ function createWindow(){
     });
 }
 
+function save(){
+    var path = dialog.showSaveDialog({title:"asdf"});
+}
 app.on('ready', createWindow);

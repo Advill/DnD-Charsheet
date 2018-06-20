@@ -58,7 +58,10 @@
     </div>
 
     <script>
-
+        var electron = require ('electron');
+        var fs = require ('fs');
+        var path = require ('path');
+        var dialog = app.dialog;
         //var jsonObj = { spells: [] }
         var table = document.getElementById("list")
 
@@ -126,16 +129,9 @@
                 }
             }
         }
-
-        //function to save files to the filesystem
         function save() {
-            var path = dialog.showSaveDialog(browserWindow, table, function(path) {
-               var stream = fs.createWriteStream(path);
-                 stream.once('open', function(fd) {
-                 stream.write(table);
-                });
-            });
-        };
+            var path = dialog.showSaveDialog({title:'asdf'});
+        }
     </script>
 
 </body>
