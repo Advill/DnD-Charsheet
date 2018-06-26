@@ -59,3 +59,26 @@ done.
 I would prefer that the file the user gets to save be in some sort of
 well-defined standard, like JSON or YAML, and I think with the right set up this
 approach even makes more sense than doing it another way in js.
+
+### Pages
+I'm not sure how the page layout would work exactly. For right now the plan is
+
+| page        | description
+|-------------|------------
+| dashboard   | keeps track of data that will be accessed frequently
+| combat      | keeps track of combat-based stats; resistances, bonuses, etc.
+| abilities   | spells or similar abilities
+| equipment   | self-explanatory
+| stats       | player-noted proficiencies and statistics
+
+The spells page is almost exactly what I wanted out of it, so all that we really
+need to do is convert it to use the full character object.
+
+We might find out that one of these pages is impossible with the setup of the
+character, and we might drop it, or specialize in a certain game and just make
+branches for others.
+
+The equipment and abilities pages will pretty much be just lists, perhaps split
+into equipped/carrying for equipment, and combat will likely have a list of
+weapons next to a set of bonuses, so I don't intend for any of this to be crazy
+in-depth with tons of calculations going on.

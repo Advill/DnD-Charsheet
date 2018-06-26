@@ -9,10 +9,6 @@ add new spells/actions or delete preexisting ones.
 any data is saved*
 
 ## How to run it
-install electron through npm:
-
-`npm install --save-dev electron`
-
-then you can run the program with a simple
+install package dependencies through npm, then simply run
 
 `electron .`
