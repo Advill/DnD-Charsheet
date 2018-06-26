@@ -1,4 +1,3 @@
-const electron = require('electron');
 const {app, BrowserWindow, Menu} = require("electron");
 const remote = electron.remote;
 const fs = require('fs');
@@ -46,7 +45,4 @@ function createWindow(){
     });
 }
 
-function save(){
-    var path = dialog.showSaveDialog({title:"asdf"});
-}
 app.on('ready', createWindow);
