@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./sidebar.css">
+    <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 </head>
 
@@ -61,7 +61,7 @@
         //var jsonObj = { spells: [] }
         var table = document.getElementById("list")
 
-        $.getJSON('./tmp/data.json', function (data) {
+        $.getJSON('../tmp/data.json', function (data) {
             $.each(data.spells, function (i, f) {
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
                     "<td class='col1'>" + f.type + "</td>" + "<td class='col1'>" + f.diceroll + "</td>" + "<td class='col2'>" + f.description + "</td>" +

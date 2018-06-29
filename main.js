@@ -22,8 +22,8 @@ const template = [
 
 function createWindow(){
     win = new BrowserWindow({
-        width:1100, 
-        height:600, 
+        width:1100,
+        height:600,
         icon:__dirname+'/img/dnd.png',
         show: false
     });
@@ -31,7 +31,7 @@ function createWindow(){
     //Menu.setApplicationMenu(menu);
 
     win.loadURL(url.format({
-        pathname: path.join(__dirname, 'index.html'),
+        pathname: path.join(__dirname, 'src/index.html'),
         protocol: 'file:',
         slashes: true
     }));
