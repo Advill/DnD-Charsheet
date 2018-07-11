@@ -1,0 +1,15 @@
+{
+    "name":"Kriv",
+    "race":"Dragonborn",
+    "class":"Barbarian",
+    "spells":[
+        {"name":"ice breath", "type":"cold", "rolltype":"d4", "rollnum":3},
+        {"name":"throwing axe", "type":"slashing", "rolltype":"d4", "rollnum":1},
+        {"name":"greataxe", "type":"slashing", "rolltype":"d12", "rollnum":1}
+    ],
+    "equipment":[
+        {"name":"magic fur pelt", "equipped":true, "note":"increases strength"},
+        {"name":"magic greataxe", "equipped":true, "note":"+1 to roll and damage"}
+    ]
+}
+

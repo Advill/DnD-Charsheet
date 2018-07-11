@@ -82,3 +82,7 @@ The equipment and abilities pages will pretty much be just lists, perhaps split
 into equipped/carrying for equipment, and combat will likely have a list of
 weapons next to a set of bonuses, so I don't intend for any of this to be crazy
 in-depth with tons of calculations going on.
+
+## Work in progress
+The actual layout of the charsheet json is very basic and only exists so that
+there is actual data to test with.

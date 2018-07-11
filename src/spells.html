@@ -15,7 +15,7 @@
         </h1>
         <input type="text" id="search">
         <input type="button" value="Search" onclick="search(document.getElementById('search').value)">
-        <input type="button" value="Save" onclick="save(document)" style="float: right">
+        <input type="button" value="Save" onclick="open(document)" style="float: right">
 
         <table style="width: 100%">
             <thead style="color:black">
@@ -125,6 +125,8 @@
                 }
             }
         }
+        function open() {
+            require(electron).ipcRenderer.send('request-sheet');
     </script>
 
 </body>

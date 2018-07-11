@@ -1,11 +1,8 @@
-const {app, BrowserWindow, Menu} = require("electron");
-//const remote = electron.remote;
+const {app, BrowserWindow, Menu, ipcMain, remote} = require("electron");
 const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
-
-let win;
 const template = [
     {
         label: 'New',
@@ -17,6 +14,15 @@ const template = [
 ]
 
 //const menu = Menu.buildFromTemplate(template);
+var sheet = JSON.parse(fs.readFileSync('charsheet.json', 'utf8'));
+console.log(sheet.name);
+ipcMain.on('request-sheet', (event, arg) => {
+    console.log('request recived!');
+    if(sheet != null)
+    {
+        event.sender('return-sheet', sheet);
+    }
+});
 
 
 
