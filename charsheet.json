@@ -25,7 +25,7 @@
     "equipment": [
         {
             "name": "magic fur pelt",
-            "equipped": true,
+            "equipped": false,
             "note": "increases strength"
         },
         {
