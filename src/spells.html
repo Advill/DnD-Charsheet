@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./index"></script>
 </head>
 
 <body>
@@ -59,6 +60,8 @@
     <script>
         //var jsonObj = { spells: [] }
         var table = document.getElementById("list")
+
+        //printFile()
 
         $.getJSON('../charsheet.json', function (data) {
             $.each(data.spells, function (i, f) {

@@ -3,6 +3,7 @@ const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
+
 const template = [
     {
         label: 'New',
