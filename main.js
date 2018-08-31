@@ -1,36 +1,36 @@
-const {app, BrowserWindow, Menu, ipcMain, remote} = require("electron");
+const { app, BrowserWindow, Menu, ipcMain, remote } = require("electron");
 const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
+
 const template = [
     {
         label: 'New',
         submenu: [
-            {label: "Action"},
-            {label: "Spell"}
+            { label: "Action" },
+            { label: "Spell" }
         ]
     }
 ]
 
 //const menu = Menu.buildFromTemplate(template);
 var sheet = JSON.parse(fs.readFileSync('charsheet.json', 'utf8'));
-console.log(sheet.name);
+console.log("Now loading: " + sheet.name);
 ipcMain.on('request-sheet', (event, arg) => {
     console.log('request recived!');
-    if(sheet != null)
-    {
+    if (sheet != null) {
         event.sender('return-sheet', sheet);
     }
 });
 
 
 
-function createWindow(){
+function createWindow() {
     win = new BrowserWindow({
-        width:1100,
-        height:600,
-        icon:__dirname+'/img/dnd.png',
+        width: 1100,
+        height: 600,
+        icon: __dirname + '/img/dnd.png',
         show: false
     });
 
@@ -42,7 +42,7 @@ function createWindow(){
         slashes: true
     }));
 
-    win.webContents.on('did-finish-load', function() {
+    win.webContents.on('did-finish-load', function () {
         win.show();
     });
 
