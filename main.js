@@ -3,6 +3,9 @@ const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
+const editJsonFile = require("edit-json-file");
+
+let file = editJsonFile(`${__dirname}./charsheet.json`);
 
 const template = [
     {
@@ -52,3 +55,16 @@ function createWindow() {
 }
 
 app.on('ready', createWindow);
+
+function printFile() {
+    console.log("hello");
+    console.log(file.get());
+}
+
+function addSpell(spell) {
+
+}
+
+function removeSpell(spell) {
+
+}
