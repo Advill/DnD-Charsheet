@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="./main"></script>
+    <script type="text/javascript" src="index.js"></script>
 </head>
 
 <body>
@@ -62,7 +62,7 @@
         var table = document.getElementById("list")
         printFile()
 
-        $.getJSON('../charsheet.json', function (data) {
+        $.getJSON('./charsheet.json', function (data) {
             $.each(data.spells, function (i, f) {
                 var diceRoll = f.rollnum + f.rolltype
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +

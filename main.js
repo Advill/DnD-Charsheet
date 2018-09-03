@@ -3,9 +3,6 @@ const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
-const editJsonFile = require("edit-json-file");
-
-let file = editJsonFile(`${__dirname}./charsheet.json`);
 
 const template = [
     {
@@ -18,7 +15,7 @@ const template = [
 ]
 
 //const menu = Menu.buildFromTemplate(template);
-var sheet = JSON.parse(fs.readFileSync('charsheet.json', 'utf8'));
+var sheet = JSON.parse(fs.readFileSync('src/charsheet.json', 'utf8'));
 console.log("Now loading: " + sheet.name);
 ipcMain.on('request-sheet', (event, arg) => {
     console.log('request recived!');
@@ -56,15 +53,4 @@ function createWindow() {
 
 app.on('ready', createWindow);
 
-function printFile() {
-    console.log("hello");
-    console.log(file.get());
-}
 
-function addSpell(spell) {
-
-}
-
-function removeSpell(spell) {
-
-}
