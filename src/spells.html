@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="../renderer.js"></script>
 </head>
 
 <body>
@@ -58,9 +58,22 @@
     </div>
 
     <script>
-        //var jsonObj = { spells: [] }
+
+        var json = (function () {
+            var json = null;
+            $.ajax({
+                'async': false,
+                'global': false,
+                'url': "./charsheet.json",
+                'dataType': "json",
+                'success': function (data) {
+                    json = data;
+                }
+            });
+            return json;
+        })();
         var table = document.getElementById("list")
-        printFile()
+        fileSave(json);
 
         $.getJSON('./charsheet.json', function (data) {
             $.each(data.spells, function (i, f) {
@@ -91,7 +104,7 @@
             // inserets the row
             var row = table.insertRow(table.length)
             row.innerHTML = tblRow
-
+            fileSave(json);
             // resets the values in the input boxes
             /*document.getElementById("name").value = ""
             document.getElementById("type").value = ""

@@ -4,6 +4,7 @@ const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
 
+
 const template = [
     {
         label: 'New',
@@ -24,8 +25,10 @@ ipcMain.on('request-sheet', (event, arg) => {
     }
 });
 
-
-
+function mainSave(json) {
+    fs.writeFileSync("/Users/Peter/Documents/vscode/DnD-Charsheet/test.json", "hello"/*JSON.stringify(json, null, 4)*/);
+}
+module.exports = mainSave;
 function createWindow() {
     win = new BrowserWindow({
         width: 1100,
