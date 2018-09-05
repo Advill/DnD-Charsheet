@@ -5,18 +5,3 @@ function createWindow () {
     win.loadURL(url.format
 */
 
-const editJsonFile = require("edit-json-file");
-
-let file = editJsonFile(`${__dirname}./charsheet.json`);
-
-function printFile() {
-    console.log(file.get());
-}
-
-function addSpell(spell) {
-
-}
-
-function removeSpell(spell) {
-
-}

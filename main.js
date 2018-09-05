@@ -4,6 +4,7 @@ const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
 
+
 const template = [
     {
         label: 'New',
@@ -15,7 +16,7 @@ const template = [
 ]
 
 //const menu = Menu.buildFromTemplate(template);
-var sheet = JSON.parse(fs.readFileSync('charsheet.json', 'utf8'));
+var sheet = JSON.parse(fs.readFileSync('src/charsheet.json', 'utf8'));
 console.log("Now loading: " + sheet.name);
 ipcMain.on('request-sheet', (event, arg) => {
     console.log('request recived!');
@@ -24,8 +25,10 @@ ipcMain.on('request-sheet', (event, arg) => {
     }
 });
 
-
-
+function mainSave(json) {
+    fs.writeFileSync("/Users/Peter/Documents/vscode/DnD-Charsheet/test.json", "hello"/*JSON.stringify(json, null, 4)*/);
+}
+module.exports = mainSave;
 function createWindow() {
     win = new BrowserWindow({
         width: 1100,
@@ -52,3 +55,5 @@ function createWindow() {
 }
 
 app.on('ready', createWindow);
+
+
