@@ -12,7 +12,8 @@
     "edit-json-file": "^1.1.0",
     "electron": "^2.0.0",
     "help": "^3.0.2",
-    "jsonfile": "^4.0.0"
+    "jsonfile": "^4.0.0",
+    "npm": "^6.4.1"
   },
   "devDependencies": {}
 }

@@ -9,7 +9,8 @@ ipcRenderer.on('return-sheet', (event, arg) => {
 ipcRenderer.send('request-sheet', 0);
 
 function fileSave(json) {
-    mainSave(json);
+    window.alert("hello");
+    ipcRenderer.send('user-data', json);
 }
 
 function foo(json) {

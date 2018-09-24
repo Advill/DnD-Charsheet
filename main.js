@@ -1,4 +1,4 @@
-const { app, BrowserWindow, Menu, ipcMain, remote } = require("electron");
+const { app, BrowserWindow, Menu, ipcMain, ipcRenderer, remote } = require("electron");
 const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
@@ -23,6 +23,10 @@ ipcMain.on('request-sheet', (event, arg) => {
     if (sheet != null) {
         event.sender('return-sheet', sheet);
     }
+});
+
+ipcMain.on('user-data', function (event, arg) {
+    window.alert("hello")
 });
 
 function mainSave(json) {
