@@ -1,4 +1,5 @@
-const { app, BrowserWindow, Menu, ipcMain, ipcRenderer, remote } = require("electron");
+const { app, BrowserWindow, Menu, remote } = require("electron");
+const ipc = require("electron").ipcMain
 const fs = require('fs');
 const dialog = app.dialog;
 const path = require("path");
@@ -18,14 +19,18 @@ const template = [
 //const menu = Menu.buildFromTemplate(template);
 var sheet = JSON.parse(fs.readFileSync('src/charsheet.json', 'utf8'));
 console.log("Now loading: " + sheet.name);
-ipcMain.on('request-sheet', (event, arg) => {
+/*ipcMain.on('request-sheet', (event, arg) => {
     console.log('request recived!');
     if (sheet != null) {
         event.sender('return-sheet', sheet);
     }
-});
+});*/
 
-ipcMain.on('user-data', function (event, arg) {
+/*ipcMain.on('user-data', function (event, arg) {
+    window.alert("hello")
+});*/
+
+ipc.on('user-data', function (event, arg) {
     window.alert("hello")
 });
 

@@ -51,7 +51,7 @@
                 </tr>
             </table>
             <br>
-            <input type="button" value="Add" onclick="addRow()">
+            <input type="button" id="addb" value="Add">
 
             <p id="demo"></p>
         </div>
@@ -73,7 +73,7 @@
             return json;
         })();
         var table = document.getElementById("list")
-        fileSave(json);
+        //fileSave(json);
 
         $.getJSON('./charsheet.json', function (data) {
             $.each(data.spells, function (i, f) {
@@ -85,6 +85,11 @@
             })
         })
 
+        $(document).ready(function () {
+            $("#addb").click(function () {
+                addRow()
+            })
+        })
         // function to add a row to the table
         function addRow() {
             // tests if the inputs are empty
