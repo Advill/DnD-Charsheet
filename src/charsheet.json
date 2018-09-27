@@ -6,20 +6,32 @@
         {
             "name": "ice breath",
             "type": "cold",
-            "rollnum": 3,
+            "rollnum": "3",
             "rolltype": "d4"
         },
         {
             "name": "throwing axe",
             "type": "slashing",
-            "rollnum": 1,
+            "rollnum": "1",
             "rolltype": "d4"
         },
         {
             "name": "greataxe",
             "type": "slashing",
-            "rollnum": 1,
+            "rollnum": "1",
             "rolltype": "d12"
+        },
+        {
+            "name": "asd",
+            "type": "asd",
+            "rollnum": "asd",
+            "rolltype": "asd"
+        },
+        {
+            "name": "asd",
+            "type": "asasd",
+            "rollnum": "asdasd",
+            "rolltype": "asd"
         }
     ],
     "equipment": [
