@@ -65,7 +65,7 @@
                 'async': false,
                 'global': false,
                 'url': "./charsheet.json",
-                'dataType': "application/json",
+                'dataType': "json",
                 'success': function (data) {
                     json = data;
                 }
@@ -76,7 +76,6 @@
 
         $.getJSON('./charsheet.json', function (data) {
             json = data;
-            //window.alert(json.spells[0].name)
             $.each(data.spells, function (i, f) {
                 var diceRoll = f.rollnum + f.rolltype
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
@@ -94,12 +93,12 @@
         // function to add a row to the table
         function addRow() {
             // tests if the inputs are empty
-            /*if (document.getElementById("name").value === "" ||
+            if (document.getElementById("name").value === "" ||
                 document.getElementById("type").value === "" ||
                 document.getElementById("rollnum").value === "" ||
                 document.getElementById("rolltype").value === "") {
                 return
-            }*/
+            }
             // creates the row with the text from the text boxes
             var name = document.getElementById("name").value;
             var type = document.getElementById("type").value;
@@ -118,39 +117,21 @@
 
             json.spells.push({ "name": name, "type": type, "rollnum": rollnum, "rolltype": rolltype })
 
-            $.ajax({
-                url: "http://localhost:3000/post",
-                type: "POST",
-                dataType: "text",
-                data: {
-                    j: JSON.stringify(json)
-                },
-                timeout: 5000,
-                complete: function () {
-                    //called when complete
-                    console.log('process complete');
-                },
-
-                success: function (data) {
-                    console.log(data);
-                    console.log('process sucess');
-                },
-
-                error: function () {
-                    console.log('process error');
-                },
-            });
+            writeToFile(json)
 
             // resets the values in the input boxes
-            /*document.getElementById("name").value = ""
+            document.getElementById("name").value = ""
             document.getElementById("type").value = ""
             document.getElementById("rollnum").value = ""
-            document.getElementById("rolltype").value = ""*/
+            document.getElementById("rolltype").value = ""
         }
 
         // function to delete a row
         function deleteRow(element) {
-            table.deleteRow(element.parentNode.parentNode.rowIndex);
+            var delIndex = element.parentNode.parentNode.rowIndex
+            table.deleteRow(delIndex)
+            json.spells.splice(delIndex, 1)
+            writeToFile(json)
         }
 
         // function to search - scrolls to searched term
@@ -163,8 +144,34 @@
                 }
             }
         }
+
+        function writeToFile(json) {
+            $.ajax({
+                url: "http://localhost:3000/post",
+                type: "POST",
+                dataType: "text",
+                data: {
+                    j: JSON.stringify(json)
+                },
+                timeout: 5000,
+                complete: function () {
+                    //called when complete
+                    console.log('process complete')
+                },
+
+                success: function (data) {
+                    console.log(data);
+                    console.log('process sucess')
+                },
+
+                error: function () {
+                    console.log('process error')
+                },
+            })
+        }
+
         function open() {
-            require(electron).ipcRenderer.send('request-sheet');
+            require(electron).ipcRenderer.send('request-sheet')
         }
     </script>
 

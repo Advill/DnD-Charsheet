@@ -11,8 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/sender', function (req, res) {
-});
+app.get('/', (req, res) => res.send(''))
 
 app.post('/post', function (req, res) {
     var json = JSON.parse(req.body.j)
@@ -23,6 +22,7 @@ app.post('/post', function (req, res) {
     });
 
     //spells = JSON.parse(req.body)
+    console.log("Writing to file...")
     console.log(json.spells)
 
     //res.contentType('json');

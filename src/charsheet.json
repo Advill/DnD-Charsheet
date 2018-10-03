@@ -1,52 +1,52 @@
 {
-    "name": "Kriv",
-    "race": "Dragonborn",
-    "class": "Barbarian",
-    "spells": [
-        {
-            "name": "ice breath",
-            "type": "cold",
-            "rollnum": "3",
-            "rolltype": "d4"
-        },
-        {
-            "name": "throwing axe",
-            "type": "slashing",
-            "rollnum": "1",
-            "rolltype": "d4"
-        },
-        {
-            "name": "greataxe",
-            "type": "slashing",
-            "rollnum": "1",
-            "rolltype": "d12"
-        },
-        {
-            "name": "asd",
-            "type": "asd",
-            "rollnum": "asd",
-            "rolltype": "asd"
-        },
-        {
-            "name": "asd",
-            "type": "asasd",
-            "rollnum": "asdasd",
-            "rolltype": "asd"
-        }
-    ],
-    "equipment": [
-        {
-            "name": "magic fur pelt",
-            "equipped": false,
-            "note": "increases strength"
-        },
-        {
-            "name": "magic greataxe",
-            "equipped": true,
-            "note": "+1 to roll and damage"
-        }
-    ],
-    "stats": [
-        {}
-    ]
+ "name": "Kriv",
+ "race": "Dragonborn",
+ "class": "Barbarian",
+ "spells": [
+  {
+   "name": "ice breath",
+   "type": "cold",
+   "rollnum": "3",
+   "rolltype": "d4"
+  },
+  {
+   "name": "throwing axe",
+   "type": "slashing",
+   "rollnum": "1",
+   "rolltype": "d4"
+  },
+  {
+   "name": "greataxe",
+   "type": "slashing",
+   "rollnum": "1",
+   "rolltype": "d12"
+  },
+  {
+   "name": "yolo",
+   "type": "ye",
+   "rollnum": "2",
+   "rolltype": "d40"
+  },
+  {
+   "name": "fire ball",
+   "type": "fire",
+   "rollnum": "2",
+   "rolltype": "8"
+  }
+ ],
+ "equipment": [
+  {
+   "name": "magic fur pelt",
+   "equipped": false,
+   "note": "increases strength"
+  },
+  {
+   "name": "magic greataxe",
+   "equipped": true,
+   "note": "+1 to roll and damage"
+  }
+ ],
+ "stats": [
+  {}
+ ]
 }
