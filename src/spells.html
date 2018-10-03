@@ -16,7 +16,7 @@
         </h1>
         <input type="text" id="search">
         <input type="button" value="Search" onclick="search(document.getElementById('search').value)">
-        <input type="button" value="Save" onclick="open(document)" style="float: right">
+        <input type="button" value="Save" style="float: right">
 
         <table>
             <thead style="color:black">
@@ -51,15 +51,15 @@
                 </tr>
             </table>
             <br>
-            <input type="button" value="Add" onclick="addRow()">
+            <input type="button" id="addb" value="Add">
 
             <p id="demo"></p>
         </div>
     </div>
 
     <script>
-
-        var json = (function () {
+        var json;
+        /*var json = (function () {
             var json = null;
             $.ajax({
                 'async': false,
@@ -71,11 +71,11 @@
                 }
             });
             return json;
-        })();
+        })();*/
         var table = document.getElementById("list")
-        fileSave(json);
 
         $.getJSON('./charsheet.json', function (data) {
+            json = data;
             $.each(data.spells, function (i, f) {
                 var diceRoll = f.rollnum + f.rolltype
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
@@ -85,6 +85,11 @@
             })
         })
 
+        $(document).ready(function () {
+            $("#addb").click(function () {
+                addRow()
+            })
+        })
         // function to add a row to the table
         function addRow() {
             // tests if the inputs are empty
@@ -95,6 +100,11 @@
                 return
             }
             // creates the row with the text from the text boxes
+            var name = document.getElementById("name").value;
+            var type = document.getElementById("type").value;
+            var rollnum = document.getElementById("rollnum").value;
+            var rolltype = document.getElementById("rolltype").value;
+
             var diceRoll = document.getElementById("rollnum").value + document.getElementById("rolltype").value
 
             var tblRow = "<tr>" + "<td class='col1'>" + document.getElementById("name").value + "</td>" +
@@ -104,17 +114,24 @@
             // inserets the row
             var row = table.insertRow(table.length)
             row.innerHTML = tblRow
-            fileSave(json);
+
+            json.spells.push({ "name": name, "type": type, "rollnum": rollnum, "rolltype": rolltype })
+
+            writeToFile(json)
+
             // resets the values in the input boxes
-            /*document.getElementById("name").value = ""
+            document.getElementById("name").value = ""
             document.getElementById("type").value = ""
             document.getElementById("rollnum").value = ""
-            document.getElementById("rolltype").value = ""*/
+            document.getElementById("rolltype").value = ""
         }
 
         // function to delete a row
         function deleteRow(element) {
-            table.deleteRow(element.parentNode.parentNode.rowIndex);
+            var delIndex = element.parentNode.parentNode.rowIndex
+            table.deleteRow(delIndex)
+            json.spells.splice(delIndex, 1)
+            writeToFile(json)
         }
 
         // function to search - scrolls to searched term
@@ -123,11 +140,38 @@
                 if (row.cells[0].innerText === name) {
                     row.cells[0].scrollIntoView()
                     // todo - add highlight to row that is found
+                    //row.css("background-color", "#ffffff");
                 }
             }
         }
+
+        function writeToFile(json) {
+            $.ajax({
+                url: "http://localhost:3000/post",
+                type: "POST",
+                dataType: "text",
+                data: {
+                    j: JSON.stringify(json)
+                },
+                timeout: 5000,
+                complete: function () {
+                    //called when complete
+                    console.log('process complete')
+                },
+
+                success: function (data) {
+                    console.log(data);
+                    console.log('process sucess')
+                },
+
+                error: function () {
+                    console.log('process error')
+                },
+            })
+        }
+
         function open() {
-            require(electron).ipcRenderer.send('request-sheet');
+            require(electron).ipcRenderer.send('request-sheet')
         }
     </script>
 
