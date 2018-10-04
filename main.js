@@ -1,6 +1,7 @@
 const { app, BrowserWindow, Menu, remote } = require("electron");
 const ipc = require("electron").ipcMain
 const fs = require('fs');
+const fork = require('child_process').fork;
 //const dialog = app.dialog;
 const path = require("path");
 const url = require("url");
@@ -19,9 +20,20 @@ const template = [
 var sheet = JSON.parse(fs.readFileSync('src/charsheet.json', 'utf8'));
 console.log("Now loading: " + sheet.name);
 
+
+
 function mainSave(json) {
     fs.writeFileSync("/Users/Peter/Documents/vscode/DnD-Charsheet/test.json", "hello"/*JSON.stringify(json, null, 4)*/);
 }
+
+// fork
+var ch = fork('./filewrite.js');
+ch.on('error', function(message) {
+    console.log(message);
+});
+
+//End IPC stuff
+
 module.exports = mainSave;
 function createWindow() {
     win = new BrowserWindow({
@@ -42,6 +54,8 @@ function createWindow() {
     });
 
     win.on('closed', () => {
+        console.log('shutting down');
+        ch.send({message: 'shutdown'});
         win = null;
     });
 }

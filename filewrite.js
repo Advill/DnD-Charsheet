@@ -13,6 +13,8 @@ app.use(bodyParser.json())
 
 app.get('/', (req, res) => res.send(''))
 
+// ipc stuff
+
 app.post('/post', function (req, res) {
     var json = JSON.parse(req.body.j)
     var strjson = JSON.stringify(json, null, 1)
@@ -27,3 +29,8 @@ app.post('/post', function (req, res) {
 
 app.listen(3000);
 console.log("listening on port 3000")
+
+process.on('message', (m) => {
+    console.log('shutdown recived');
+    process.exit();
+});
