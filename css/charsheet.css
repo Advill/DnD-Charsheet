@@ -41,6 +41,17 @@
     opacity: 1;
   }
 
+.confirm_selection {
+    -webkit-transition: text-shadow 0.1s linear;
+    -moz-transition: text-shadow 0.1s linear;
+    -ms-transition: text-shadow 0.1s linear;
+    -o-transition: text-shadow 0.1s linear;
+    transition: text-shadow 0.1s linear;
+}
+.confirm_selection:hover {
+    text-shadow: 0 0 10px grey; /* replace with whatever color you want */
+}
+
 .col1 {
     width: 150px;
 }
