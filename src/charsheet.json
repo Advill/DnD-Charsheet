@@ -22,10 +22,10 @@
    "rolltype": "d12"
   },
   {
-   "name": "yolo",
-   "type": "ye",
+   "name": "fire ball",
+   "type": "fire",
    "rollnum": "2",
-   "rolltype": "d40"
+   "rolltype": "d8"
   }
  ],
  "equipment": [
