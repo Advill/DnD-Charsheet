@@ -21,12 +21,8 @@ app.post('/post', function (req, res) {
         if (err) console.log(err)
     });
 
-    //spells = JSON.parse(req.body)
     console.log("Writing to file...")
     console.log(json.spells)
-
-    //res.contentType('json');
-    //res.send({ some: JSON.stringify({ response: 'json' }) });
 });
 
 app.listen(3000);

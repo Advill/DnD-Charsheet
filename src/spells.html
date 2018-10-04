@@ -92,23 +92,30 @@
         })
         // function to add a row to the table
         function addRow() {
-            // tests if the inputs are empty
-            if (document.getElementById("name").value === "" ||
-                document.getElementById("type").value === "" ||
-                document.getElementById("rollnum").value === "" ||
-                document.getElementById("rolltype").value === "") {
-                return
-            }
-            // creates the row with the text from the text boxes
             var name = document.getElementById("name").value;
             var type = document.getElementById("type").value;
             var rollnum = document.getElementById("rollnum").value;
             var rolltype = document.getElementById("rolltype").value;
 
-            var diceRoll = document.getElementById("rollnum").value + document.getElementById("rolltype").value
+            // tests if the inputs are empty
+            if (name === "" || type === "" || rollnum === "" || rolltype === "") {
+                return
+            }
 
-            var tblRow = "<tr>" + "<td class='col1'>" + document.getElementById("name").value + "</td>" +
-                "<td class='col1'>" + document.getElementById("type").value + "</td>" + "<td class='col1'>" + diceRoll + "</td>" +
+            for (var i = 0, row; row = table.rows[i], i < table.rows.length; i++) {
+                if (row.cells[0].innerText === name) {
+                    window.alert("Spell with same name already exists")
+                    clearInput()
+                    return
+                }
+            }
+
+            // creates the row with the text from the text boxes
+
+            var diceRoll = rollnum + rolltype
+
+            var tblRow = "<tr>" + "<td class='col1'>" + name + "</td>" +
+                "<td class='col1'>" + type + "</td>" + "<td class='col1'>" + diceRoll + "</td>" +
                 "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
 
             // inserets the row
@@ -118,12 +125,7 @@
             json.spells.push({ "name": name, "type": type, "rollnum": rollnum, "rolltype": rolltype })
 
             writeToFile(json)
-
-            // resets the values in the input boxes
-            document.getElementById("name").value = ""
-            document.getElementById("type").value = ""
-            document.getElementById("rollnum").value = ""
-            document.getElementById("rolltype").value = ""
+            clearInput()
         }
 
         // function to delete a row
@@ -143,6 +145,14 @@
                     //row.css("background-color", "#ffffff");
                 }
             }
+        }
+
+        function clearInput() {
+            // resets the values in the input boxes
+            document.getElementById("name").value = ""
+            document.getElementById("type").value = ""
+            document.getElementById("rollnum").value = ""
+            document.getElementById("rolltype").value = ""
         }
 
         function writeToFile(json) {
