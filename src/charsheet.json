@@ -26,12 +26,6 @@
    "type": "ye",
    "rollnum": "2",
    "rolltype": "d40"
-  },
-  {
-   "name": "fire ball",
-   "type": "fire",
-   "rollnum": "2",
-   "rolltype": "8"
   }
  ],
  "equipment": [
