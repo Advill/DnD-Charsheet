@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/sidebar.css">
+    <link rel="stylesheet" type="text/css" href="../css/charsheet.css">
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="../renderer.js"></script>
 </head>
@@ -15,8 +15,8 @@
             <b>Spells</b>
         </h1>
         <input type="text" id="search">
-        <input type="button" value="Search" onclick="search(document.getElementById('search').value)">
-        <input type="button" value="Save" style="float: right">
+        <input type="button" class="cssbutton allbtn" value="Search" onclick="search(document.getElementById('search').value)">
+        <input type="button" class="cssbutton allbtn" value="Save" style="float: right">
 
         <table>
             <thead style="color:black">
@@ -47,11 +47,12 @@
                     <td>
                         <input type="text" id="rolltype" size="12">
                     </td>
-                    <td> </td>
+                    <td>
+                        <input class="cssbutton allbtn" type="button" id="addb" value="Add">
+                    </td>
                 </tr>
             </table>
             <br>
-            <input type="button" id="addb" value="Add">
 
             <p id="demo"></p>
         </div>
@@ -59,19 +60,6 @@
 
     <script>
         var json;
-        /*var json = (function () {
-            var json = null;
-            $.ajax({
-                'async': false,
-                'global': false,
-                'url': "./charsheet.json",
-                'dataType': "json",
-                'success': function (data) {
-                    json = data;
-                }
-            });
-            return json;
-        })();*/
         var table = document.getElementById("list")
 
         $.getJSON('./charsheet.json', function (data) {
@@ -80,7 +68,7 @@
                 var diceRoll = f.rollnum + f.rolltype
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
                     "<td class='col1'>" + f.type + "</td>" + "<td class='col2'>" + diceRoll + "</td>" +
-                    "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
+                    "<td>" + '<input class="closebutton cssbutton allbtn" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
                 $("#list tbody").append(tblRow);
             })
         })
@@ -116,7 +104,7 @@
 
             var tblRow = "<tr>" + "<td class='col1'>" + name + "</td>" +
                 "<td class='col1'>" + type + "</td>" + "<td class='col1'>" + diceRoll + "</td>" +
-                "<td>" + '<input class="button" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
+                "<td>" + '<input class="closebutton cssbutton allbtn" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
 
             // inserets the row
             var row = table.insertRow(table.length)

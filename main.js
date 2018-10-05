@@ -54,6 +54,7 @@ function createWindow() {
     });
 
     win.on('closed', () => {
+        console.log('client shutting down');
         ch.send({message: 'shutdown'});
         win = null;
     });

@@ -10,22 +10,16 @@
    "rolltype": "d4"
   },
   {
-   "name": "throwing axe",
-   "type": "slashing",
-   "rollnum": "1",
-   "rolltype": "d4"
-  },
-  {
    "name": "greataxe",
    "type": "slashing",
    "rollnum": "1",
    "rolltype": "d12"
   },
   {
-   "name": "yolo",
-   "type": "ye",
+   "name": "fire ball",
+   "type": "fire",
    "rollnum": "2",
-   "rolltype": "d40"
+   "rolltype": "d8"
   }
  ],
  "equipment": [

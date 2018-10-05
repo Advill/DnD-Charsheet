@@ -1,0 +1,98 @@
+.sidenav {
+    height: 100%;
+    width: 160px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #5e5c5c;
+    overflow-x: hidden;
+    padding-top: 20px;
+    display: block;
+}
+
+.sidenav a {
+    text-decoration: none;
+    font-size: 25px;
+    color: #000000;
+}
+
+.sidenav a:hover {
+    color: #000000;
+}
+
+.sidenav button {
+    background-color: #5e5c5c;
+    border: 1px solid #5e5c5c;
+    color: black;
+    width: 160px;
+    text-align: left;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.sidenav button:not(:last-child) {
+    border-bottom: none;
+}
+
+.sidenav button:hover {
+    background-color: darkgray;
+}
+
+.main {
+    margin-left: 160px;
+    font-size: 28px; 
+    padding: 0px 10px;
+}
+.main2 {
+    margin-left: 160px;
+    font-size: 16px; 
+    padding: 0px 10px;
+}
+
+.closebutton {
+    opacity: 0;
+  }
+  
+  tr:hover .closebutton {
+    opacity: 1;
+  }
+
+.cssbutton {
+    background-color: rgb(92, 92, 92);
+    border: none;
+    color: white;
+    padding: 3px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+.cssbutton:hover {
+    background-color: rgba(92, 92, 92, 0.849);
+}
+
+.allbtn button{
+    outline: none;
+}
+
+.confirm_selection {
+    -webkit-transition: text-shadow 0.1s linear;
+    -moz-transition: text-shadow 0.1s linear;
+    -ms-transition: text-shadow 0.1s linear;
+    -o-transition: text-shadow 0.1s linear;
+    transition: text-shadow 0.1s linear;
+}
+.confirm_selection:hover {
+    text-shadow: 0 0 10px lightgray;
+}
+
+.col1 {
+    width: 150px;
+}
+
+.col2 {
+    width: 100px;
+}
