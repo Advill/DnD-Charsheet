@@ -8,18 +8,35 @@
     background-color: #5e5c5c;
     overflow-x: hidden;
     padding-top: 20px;
+    display: block;
 }
 
 .sidenav a {
-    padding: 6px 8px 6px 16px;
     text-decoration: none;
     font-size: 25px;
     color: #000000;
-    display: block;
 }
 
 .sidenav a:hover {
     color: #000000;
+}
+
+.sidenav button {
+    background-color: #5e5c5c;
+    border: 1px solid #5e5c5c;
+    color: black;
+    width: 160px;
+    text-align: left;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+
+.sidenav button:not(:last-child) {
+    border-bottom: none;
+}
+
+.sidenav button:hover {
+    background-color: darkgray;
 }
 
 .main {
@@ -42,7 +59,7 @@
   }
 
 .cssbutton {
-    background-color: rgb(92, 92, 92); /* Green */
+    background-color: rgb(92, 92, 92);
     border: none;
     color: white;
     padding: 3px 32px;
@@ -57,6 +74,10 @@
     background-color: rgba(92, 92, 92, 0.849);
 }
 
+.allbtn button{
+    outline: none;
+}
+
 .confirm_selection {
     -webkit-transition: text-shadow 0.1s linear;
     -moz-transition: text-shadow 0.1s linear;
@@ -65,7 +86,7 @@
     transition: text-shadow 0.1s linear;
 }
 .confirm_selection:hover {
-    text-shadow: 0 0 10px grey; /* replace with whatever color you want */
+    text-shadow: 0 0 10px lightgray;
 }
 
 .col1 {

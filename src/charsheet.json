@@ -10,12 +10,6 @@
    "rolltype": "d4"
   },
   {
-   "name": "throwing axe",
-   "type": "slashing",
-   "rollnum": "1",
-   "rolltype": "d4"
-  },
-  {
    "name": "greataxe",
    "type": "slashing",
    "rollnum": "1",
