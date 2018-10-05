@@ -31,6 +31,5 @@ app.listen(3000);
 console.log("listening on port 3000")
 
 process.on('message', (m) => {
-    console.log('shutdown recived');
     process.exit();
 });
