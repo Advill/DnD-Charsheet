@@ -29,6 +29,7 @@
     text-align: left;
     padding: 5px 15px;
     cursor: pointer;
+    outline: none;
 }
 
 .sidenav button:not(:last-child) {
@@ -48,14 +49,33 @@
     margin-left: 160px;
     font-size: 16px; 
     padding: 0px 10px;
+    float:left;
+    margin-right:25px;
+}
+
+.main2.add {
+    position:absolute; 
+    
 }
 
 .closebutton {
     opacity: 0;
+    
   }
   
   tr:hover .closebutton {
     opacity: 1;
+  }
+
+.row {
+    -webkit-transition: text-shadow 0.1s linear;
+    -moz-transition: text-shadow 0.1s linear;
+    -ms-transition: text-shadow 0.1s linear;
+    -o-transition: text-shadow 0.1s linear;
+    transition: text-shadow 0.1s linear;
+  }
+  row:hover {
+    background-color: lightgray;
   }
 
 .cssbutton {
@@ -69,13 +89,10 @@
     font-size: 16px;
     border-radius: 2px;
     cursor: pointer;
+    outline: none;
 }
 .cssbutton:hover {
     background-color: rgba(92, 92, 92, 0.849);
-}
-
-.allbtn button{
-    outline: none;
 }
 
 .confirm_selection {

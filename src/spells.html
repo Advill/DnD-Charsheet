@@ -15,8 +15,8 @@
             <b>Spells</b>
         </h1>
         <input type="text" id="search">
-        <input type="button" class="cssbutton allbtn" value="Search" onclick="search(document.getElementById('search').value)">
-        <input type="button" class="cssbutton allbtn" value="Save" style="float: right">
+        <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)">
+        <input type="button" class="cssbutton" value="Save" style="float: right">
 
         <table>
             <thead style="color:black">
@@ -48,7 +48,7 @@
                         <input type="text" id="rolltype" size="12">
                     </td>
                     <td>
-                        <input class="cssbutton allbtn" type="button" id="addb" value="Add">
+                        <input class="cssbutton" type="button" id="addb" value="Add">
                     </td>
                 </tr>
             </table>
@@ -65,10 +65,10 @@
         $.getJSON('./charsheet.json', function (data) {
             json = data;
             $.each(data.spells, function (i, f) {
-                var diceRoll = f.rollnum + f.rolltype
+                var diceRoll = f.rollnum + "d" + f.rolltype
                 var tblRow = "<tr>" + "<td class='col1'>" + f.name + "</td>" +
                     "<td class='col1'>" + f.type + "</td>" + "<td class='col2'>" + diceRoll + "</td>" +
-                    "<td>" + '<input class="closebutton cssbutton allbtn" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
+                    "<td>" + '<input class="closebutton cssbutton" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
                 $("#list tbody").append(tblRow);
             })
         })
@@ -90,6 +90,7 @@
                 return
             }
 
+            // tests if the spell added already exists - no duplicates(deleting/searching use name)
             for (var i = 0, row; row = table.rows[i], i < table.rows.length; i++) {
                 if (row.cells[0].innerText === name) {
                     window.alert("Spell with same name already exists")
@@ -99,19 +100,19 @@
             }
 
             // creates the row with the text from the text boxes
-
-            var diceRoll = rollnum + rolltype
-
+            var diceRoll = rollnum + "d" + rolltype
             var tblRow = "<tr>" + "<td class='col1'>" + name + "</td>" +
                 "<td class='col1'>" + type + "</td>" + "<td class='col1'>" + diceRoll + "</td>" +
-                "<td>" + '<input class="closebutton cssbutton allbtn" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
+                "<td>" + '<input class="closebutton cssbutton" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
 
             // inserets the row
             var row = table.insertRow(table.length)
             row.innerHTML = tblRow
 
+            // adds new spell to spell array in json
             json.spells.push({ "name": name, "type": type, "rollnum": rollnum, "rolltype": rolltype })
 
+            // write to file
             writeToFile(json)
             clearInput()
         }
