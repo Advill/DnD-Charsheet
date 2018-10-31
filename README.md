@@ -12,3 +12,5 @@ any data is saved*
 install package dependencies through npm, then simply run
 
 `electron .`
+
+5e spells json from [here](https://github.com/tadzik/5e-spells/blob/master/spells.json)

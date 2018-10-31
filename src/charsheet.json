@@ -4,22 +4,70 @@
  "class": "Barbarian",
  "spells": [
   {
-   "name": "ice breath",
+   "name": "Ice Barrage",
    "type": "cold",
-   "rollnum": "3",
-   "rolltype": "d4"
-  },
-  {
-   "name": "greataxe",
-   "type": "slashing",
-   "rollnum": "1",
-   "rolltype": "d12"
-  },
-  {
-   "name": "fire ball",
-   "type": "fire",
    "rollnum": "2",
-   "rolltype": "d8"
+   "rolltype": "8"
+  },
+  {
+   "name": "Fire Ball",
+   "type": "fire",
+   "rollnum": "1",
+   "rolltype": "20"
+  },
+  {
+   "name": "Spell1",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell2",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell3",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell4",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell5",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell6",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell7",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell8",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "6"
+  },
+  {
+   "name": "Spell9",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "6"
   }
  ],
  "equipment": [
