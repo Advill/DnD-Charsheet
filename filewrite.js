@@ -27,8 +27,8 @@ app.post('/post', function (req, res) {
     console.log(json.spells)
 });
 
-app.listen(3000);
-console.log("listening on port 3000")
+app.listen(8991);
+console.log("listening on port 8991")
 
 process.on('message', (m) => {
     console.log('server shutting down');

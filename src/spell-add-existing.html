@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/charsheet.css">
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="../renderer.js"></script>
+
+    <style>
+        #row:hover {
+            background-color: lightgray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="saddframe">
+
+        <div class="split left">
+            <h2><b>Spell Name</b></h2>
+            <input type="text" id="search">
+            <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)">
+
+            <table id="list" frame="box" style="margin-top: 5%; width: 40%; height: 50vh">
+                <tbody style="display:block; width:100%; height:100%; overflow:auto">
+
+                </tbody>
+            </table>
+        </div>
+        <div class="split right" style="margin-bottom: 10%">
+            <div style="overflow: auto; height: 60vh">
+                <p id="name" style="margin-right: 15%"></p>
+                <h4><b>Components</b></h4>
+                <p id="comp" style="margin-right: 15%"></p>
+                <h4><b>Duration</b></h4>
+                <p id="dur" style="margin-right: 15%"></p>
+                <h4><b>Range</b></h4>
+                <p id="range" style="margin-right: 15%"></p>
+                <h4><b>School</b></h4>
+                <p id="school" style="margin-right: 15%"></p>
+                <h4><b>Description</b></h4>
+                <p id="desc" style="margin-right: 15%"></p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script>
+    var json;
+    var table = document.getElementById("list")
+
+    $.getJSON('../spells.json', function (data) {
+        json = data;
+        $.each(data, function (i, f) {
+            var tblRow = "<tr id='row' onClick='rowClick(this)'>" + "<td style='width:1000px'>" + i + "</td>" + "</tr>"
+            $("#list tbody").append(tblRow);
+        })
+    })
+
+    // search function pulled from main 
+    function search(name) {
+        for (var i = 0, row; row = table.rows[i], i < table.rows.length; i++) {
+            if (row.cells[0].innerText === name) {
+                row.cells[0].scrollIntoView()
+            }
+        }
+    }
+
+    // displays description of spell when selected
+    function rowClick(row) {
+        $.each(json, function (i, f) {
+            if (String(i) === row.innerText) {
+                document.getElementById("name").innerHTML = "<h2><b>" + i + "<b><h2>"
+                document.getElementById("comp").innerHTML = f.components
+                document.getElementById("dur").innerHTML = f.duration
+                document.getElementById("range").innerHTML = f.range
+                document.getElementById("school").innerHTML = f.school
+                document.getElementById("desc").innerHTML = f.description
+                return
+            }
+        })
+    }
+</script>
+
+</html>

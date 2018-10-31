@@ -1,0 +1,29 @@
+{
+  "name": "dnd",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "server": "node filewrite.js",
+    "ddev": "concurrently \"node filewrite.js\" \"electron .\""
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "concurrently": "^4.0.1",
+    "edit-json-file": "^1.1.0",
+    "electron": "^2.0.12",
+    "electron-packager": "^12.2.0",
+    "electron-prebuilt": "^1.4.13",
+    "express": "^4.16.4",
+    "help": "^3.0.2",
+    "jsonfile": "^4.0.0",
+    "node-ipc": "^9.1.1",
+    "npm": "^6.4.1"
+  },
+  "devDependencies": {
+    "electron-installer-debian": "^1.0.0"
+  }
+}

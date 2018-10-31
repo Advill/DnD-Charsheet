@@ -64,23 +64,11 @@
    "rolltype": "6"
   },
   {
-    "name": "Spell9",
-    "type": "random",
-    "rollnum": "1",
-    "rolltype": "6"
-   },
-   {
-    "name": "Spell10",
-    "type": "random",
-    "rollnum": "1",
-    "rolltype": "6"
-   },
-   {
-    "name": "Spell11",
-    "type": "random",
-    "rollnum": "1",
-    "rolltype": "6"
-   }
+   "name": "Spell9",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "6"
+  }
  ],
  "equipment": [
   {

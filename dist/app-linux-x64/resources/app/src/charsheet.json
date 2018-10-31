@@ -1,0 +1,100 @@
+{
+ "name": "Kriv",
+ "race": "Dragonborn",
+ "class": "Barbarian",
+ "spells": [
+  {
+   "name": "Ice Barrage",
+   "type": "cold",
+   "rollnum": "2",
+   "rolltype": "8"
+  },
+  {
+   "name": "Fire Ball",
+   "type": "fire",
+   "rollnum": "1",
+   "rolltype": "20"
+  },
+  {
+   "name": "Spell1",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell2",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell3",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell4",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell5",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell6",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell7",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "5"
+  },
+  {
+   "name": "Spell8",
+   "type": "random",
+   "rollnum": "1",
+   "rolltype": "6"
+  },
+  {
+    "name": "Spell9",
+    "type": "random",
+    "rollnum": "1",
+    "rolltype": "6"
+   },
+   {
+    "name": "Spell10",
+    "type": "random",
+    "rollnum": "1",
+    "rolltype": "6"
+   },
+   {
+    "name": "Spell11",
+    "type": "random",
+    "rollnum": "1",
+    "rolltype": "6"
+   }
+ ],
+ "equipment": [
+  {
+   "name": "magic fur pelt",
+   "equipped": false,
+   "note": "increases strength"
+  },
+  {
+   "name": "magic greataxe",
+   "equipped": true,
+   "note": "+1 to roll and damage"
+  }
+ ],
+ "stats": [
+  {}
+ ]
+}

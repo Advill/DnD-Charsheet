@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Dungeons and Dragons Character Sheet</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://bootswatch.com/4/pulse/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/charsheet.css">
+    <style type="text/css">
+        body {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='sidenav btn-group'>
+        <a href="./home.html" target="iframe" class="confirm_selection">
+            <button>Home</button>
+        </a>
+        <a href="./equipment.html" target="iframe" class="confirm_selection">
+            <button>Equipment</button>
+        </a>
+        <a href="./spells-new.html" target="iframe" class="confirm_selection">
+            <button>Spells</button>
+        </a>
+        <a href="./stats.html" target="iframe" class="confirm_selection">
+            <button>Stats</button>
+        </a>
+    </div>
+    <iframe src="./spells.html" name="iframe" style="border: 10; width: 100%; height: 100%; position: fixed"></iframe>
+
+</body>
+
+<script>
+    require("../renderer.js");
+
+</script>
+
+</html>

@@ -1,0 +1,6 @@
+# gitignore file, this might not work so
+node_modules
+node_modules/**
+# these are just save files, so they dont need to be on the repo
+tmp
+tmp/**

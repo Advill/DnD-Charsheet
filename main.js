@@ -22,19 +22,14 @@ console.log("Now loading: " + sheet.name);
 
 
 
-function mainSave(json) {
-    fs.writeFileSync("/Users/Peter/Documents/vscode/DnD-Charsheet/test.json", "hello"/*JSON.stringify(json, null, 4)*/);
-}
-
 // fork
 var ch = fork('./filewrite.js');
-ch.on('error', function(message) {
+ch.on('error', function (message) {
     console.log(message);
 });
 
 //End IPC stuff
 
-module.exports = mainSave;
 function createWindow() {
     win = new BrowserWindow({
         width: 1100,
@@ -55,11 +50,9 @@ function createWindow() {
 
     win.on('closed', () => {
         console.log('client shutting down');
-        ch.send({message: 'shutdown'});
+        ch.send({ message: 'shutdown' });
         win = null;
     });
 }
 
 app.on('ready', createWindow);
-
-
