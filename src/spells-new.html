@@ -51,9 +51,11 @@
         $.getJSON('./charsheet.json', function (data) {
             json = data;
             $.each(data.spells, function (i, f) {
-                var diceRoll = f.rollnum + "d" + f.rolltype
-                var tblRow = "<tr id='row'>" + "<td style='width:1000px'>" + f.name + "</td>" + "</tr>"
-                $("#list tbody").append(tblRow);
+                $.each(f, function (a, b) {
+                    var tblRow = "<tr id='row'>" + "<td style='width:1000px'>" + a + "</td>" + "</tr>"
+                    $("#list tbody").append(tblRow);
+                })
+
             })
         })
 
@@ -63,45 +65,6 @@
                 window.alert("add")
             })
         })
-
-        // function to add a row to the table
-        function addRow() {
-            var name = document.getElementById("name").value;
-            var type = document.getElementById("type").value;
-            var rollnum = document.getElementById("rollnum").value;
-            var rolltype = document.getElementById("rolltype").value;
-
-            // tests if the inputs are empty
-            if (name === "" || type === "" || rollnum === "" || rolltype === "") {
-                return
-            }
-
-            // tests if the spell added already exists - no duplicates(deleting/searching use name)
-            for (var i = 0, row; row = table.rows[i], i < table.rows.length; i++) {
-                if (row.cells[0].innerText === name) {
-                    window.alert("Spell with same name already exists")
-                    clearInput()
-                    return
-                }
-            }
-
-            // creates the row with the text from the text boxes
-            var diceRoll = rollnum + "d" + rolltype
-            var tblRow = "<tr id='row'>" + "<td class='col1'>" + name + "</td>" +
-                "<td class='col1'>" + type + "</td>" + "<td class='col1'>" + diceRoll + "</td>" +
-                "<td>" + '<input class="closebutton cssbutton" type="button" value="Delete" onclick="deleteRow(this)">' + "</td>" + "</tr>"
-
-            // inserets the row
-            var row = table.insertRow(table.length)
-            row.innerHTML = tblRow
-
-            // adds new spell to spell array in json
-            json.spells.push({ "name": name, "type": type, "rollnum": rollnum, "rolltype": rolltype })
-
-            // write to file
-            writeToFile(json)
-            clearInput()
-        }
 
         // function to delete a row
         function deleteRow(element) {
@@ -130,34 +93,10 @@
             document.getElementById("rolltype").value = ""
         }
 
-        function writeToFile(json) {
-            $.ajax({
-                url: "http://localhost:8991/post",
-                type: "POST",
-                dataType: "text",
-                data: {
-                    j: JSON.stringify(json)
-                },
-                timeout: 5000,
-                complete: function () {
-                    //called when complete
-                    console.log('process complete')
-                },
-
-                success: function (data) {
-                    console.log(data);
-                    console.log('process sucess')
-                },
-
-                error: function () {
-                    console.log('process error')
-                },
-            })
-        }
-
         function open() {
             require(electron).ipcRenderer.send('request-sheet')
         }
+
     </script>
 
 </body>
