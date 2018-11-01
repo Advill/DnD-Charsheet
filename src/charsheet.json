@@ -4,82 +4,26 @@
  "class": "Barbarian",
  "spells": [
   {
-   "name": "Ice Barrage",
-   "type": "cold",
-   "rollnum": "2",
-   "rolltype": "8"
+   "Aid": {
+    "casting_time": "1 action",
+    "components": "V, S, M (a tiny strip of white cloth)",
+    "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target’s hit point maximum and current hit points increase by 5 for the duration. At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, a target’s hit points increase by an additional 5 for each slot level above 2nd.",
+    "duration": "8 hours",
+    "level": 2,
+    "range": "30 feet",
+    "school": "Abjuration"
+   }
   },
   {
-   "name": "Fire Ball",
-   "type": "fire",
-   "rollnum": "1",
-   "rolltype": "20"
-  },
-  {
-   "name": "Spell1",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell2",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell3",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell4",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell5",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell6",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell7",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "5"
-  },
-  {
-   "name": "Spell8",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "6"
-  },
-  {
-   "name": "Spell9",
-   "type": "random",
-   "rollnum": "1",
-   "rolltype": "6"
-  }
- ],
- "equipment": [
-  {
-   "name": "magic fur pelt",
-   "equipped": false,
-   "note": "increases strength"
-  },
-  {
-   "name": "magic greataxe",
-   "equipped": true,
-   "note": "+1 to roll and damage"
+   "Arcane Eye": {
+    "casting_time": "1 action",
+    "components": "V, S, M (a bit of bat fur)",
+    "description": "You create an invisible, magical eye within range that hovers in the air for the duration. You mentally receive visual information from the eye, which has normal vision and darkvision out to 30 feet. The eye can look in every direction. As an action, you can move the eye up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can’t enter another plane of existence. A solid barrier blocks the eye’s movement, but the eye can pass through an opening as small as 1 inch in diameter.",
+    "duration": "Concentration, up to 1 hour",
+    "level": 4,
+    "range": "30 feet",
+    "school": "Divination"
+   }
   }
  ],
  "stats": [
