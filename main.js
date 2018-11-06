@@ -17,7 +17,7 @@ const template = [
     }
 ]
 
-var sheet = JSON.parse(fs.readFileSync('src/charsheet.json', 'utf8'));
+var sheet = JSON.parse(fs.readFileSync('jsonsrc/charsheet.json', 'utf8'));
 console.log("Now loading: " + sheet.name);
 
 

@@ -46,13 +46,14 @@
 
     <script>
         var json;
-        var table = document.getElementById("list")
+        var table = document.getElementById("list");
+        var childWindow = null
 
-        $.getJSON('./charsheet.json', function (data) {
+        $.getJSON('../jsonsrc/charsheet.json', function (data) {
             json = data;
             $.each(data.spells, function (i, f) {
                 $.each(f, function (a, b) {
-                    var tblRow = "<tr id='row'>" + "<td style='width:1000px'>" + a + "</td>" + "</tr>"
+                    var tblRow = "<tr id='row' style='width:1000px'>" + "<td >" + a + "</td>" + "</tr>"
                     $("#list tbody").append(tblRow);
                 })
 
@@ -65,6 +66,10 @@
                 window.alert("add")
             })
         })
+
+        function open_child() {
+            //childWindow = window.open("./spell-add.html", "_blank")
+        }
 
         // function to delete a row
         function deleteRow(element) {

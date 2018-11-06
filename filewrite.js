@@ -19,7 +19,7 @@ app.post('/post', function (req, res) {
     var json = JSON.parse(req.body.j)
     var strjson = JSON.stringify(json, null, 1)
 
-    fs.writeFile('./src/charsheet.json', strjson, 'utf8', function (err) {
+    fs.writeFile('./jsonsrc/charsheet.json', strjson, 'utf8', function (err) {
         if (err) console.log(err)
     });
 
