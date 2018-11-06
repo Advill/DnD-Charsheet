@@ -20,10 +20,10 @@
 
         <div class="split left">
             <h2><b>Spell Name</b></h2>
-            <input type="text" id="search">
-            <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)">
+            <input type="text" id="search" style = "width: 40vh;">
+            <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)" style="width: 20vh">
 
-            <table id="list" frame="box" style="margin-top: 5%; margin-bottom: 5%; width: 40%; height: 50vh">
+            <table id="list" frame="box" style="margin-top: 5%; margin-bottom: 5%; width: 60vh; height: 50vh">
                 <tbody style="display:block; width:100%; height:100%; overflow:auto">
 
                 </tbody>
@@ -56,7 +56,7 @@
     var table = document.getElementById("list");
     var selected;
 
-    $.getJSON('../spells.json', function (data) {
+    $.getJSON('../jsonsrc/spells.json', function (data) {
         json_spells = data;
         $.each(data, function (i, f) {
             var tblRow = "<tr id='row' onClick='rowClick(this)'>" + "<td style='width:1000px'>" + i + "</td>" + "</tr>";
@@ -64,7 +64,7 @@
         });
     });
 
-    $.getJSON('./charsheet.json', function (data) {
+    $.getJSON('../jsonsrc/charsheet.json', function (data) {
         json_char = data;
     });
 

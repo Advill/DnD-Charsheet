@@ -1,0 +1,54 @@
+{
+ "name": "Kriv",
+ "race": "Dragonborn",
+ "class": "Barbarian",
+ "spells": [
+  {
+   "Aid": {
+    "casting_time": "1 action",
+    "components": "V, S, M (a tiny strip of white cloth)",
+    "description": "Your spell bolsters your allies with toughness and resolve. Choose up to three creatures within range. Each target’s hit point maximum and current hit points increase by 5 for the duration. At Higher Levels. When you cast this spell using a spell slot of 3rd level or higher, a target’s hit points increase by an additional 5 for each slot level above 2nd.",
+    "duration": "8 hours",
+    "level": 2,
+    "range": "30 feet",
+    "school": "Abjuration"
+   }
+  },
+  {
+   "Arcane Eye": {
+    "casting_time": "1 action",
+    "components": "V, S, M (a bit of bat fur)",
+    "description": "You create an invisible, magical eye within range that hovers in the air for the duration. You mentally receive visual information from the eye, which has normal vision and darkvision out to 30 feet. The eye can look in every direction. As an action, you can move the eye up to 30 feet in any direction. There is no limit to how far away from you the eye can move, but it can’t enter another plane of existence. A solid barrier blocks the eye’s movement, but the eye can pass through an opening as small as 1 inch in diameter.",
+    "duration": "Concentration, up to 1 hour",
+    "level": 4,
+    "range": "30 feet",
+    "school": "Divination"
+   }
+  },
+  {
+   "Gate": {
+    "casting_time": "1 action",
+    "components": "V, S, M (a diamond worth at least 5,000 gp)",
+    "description": "You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 5 to 20 feet in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration. The portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal. Deities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains. When you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn’t work). If that creature is on a plane other than the one you are on, the portal opens in the named creature’s immediate vicinity and draws the creature through it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the DM deems appropriate. It might leave, attack you, or help you.",
+    "duration": "Concentration, up to 1 minute",
+    "level": 9,
+    "range": "60 feet",
+    "school": "Conjuration"
+   }
+  },
+  {
+   "Commune": {
+    "casting_time": "1 minute",
+    "components": "V, S, M (incense and a vial of holy or unholy water)",
+    "description": "You contact your deity or a divine proxy and ask up to three questions that can be answered with a yes or no. You must ask your questions before the spell ends. You receive a correct answer for each question. Divine beings aren’t necessarily omniscient, so you might receive “unclear” as an answer if a question pertains to information that lies beyond the deity’s knowledge. In a case where a one-word answer could be misleading or contrary to the deity’s interests, the DM might offer a short phrase as an answer instead. If you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer. The DM makes this roll in secret.",
+    "duration": "1 minute",
+    "level": 5,
+    "range": "Self",
+    "school": "Divination"
+   }
+  }
+ ],
+ "stats": [
+  {}
+ ]
+}
