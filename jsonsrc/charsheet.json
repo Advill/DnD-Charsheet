@@ -49,6 +49,13 @@
   }
  ],
  "stats": [
-  {}
+  {
+   "name":"Strength",
+   "score":20
+  },
+  {
+   "name":"Dexterity",
+   "score":14
+  }
  ]
 }

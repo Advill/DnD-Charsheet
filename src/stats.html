@@ -16,6 +16,23 @@
     <script>
         require('../renderer.js');
 
+		var json;
+		var table = document.getElementById("list")
+		#.getJSON('./charsheet.json', function (data) {
+			json = data;
+			$.each(data.stats, function (i, f) {
+				var tblRow = "<tr>" + "<td class='coll1'>" + f.name + "</td>" +
+					"<td class='col1'>" + f.score + "</td>" +
+					"<td>" + "<input class='closebutton cssbutton'" + 
+					"type='button' value='Delete' onclick='deleteRow(this)'>" +
+					"</td></tr>"
+				$("#list tbody").append(tblRow);
+			})
+		})
+		
+		$(document).ready(function () {
+			$
+
     </script>
 </body>
 
