@@ -8,7 +8,7 @@
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
     <script type="text/javascript" src="../renderer.js"></script>
     <style>
-        #row:hover {
+        #body tr:hover {
             background-color: lightgray;
         }
     </style>
@@ -19,31 +19,59 @@
         <h1 id="title">
             <b>Spells</b>
         </h1>
-        <table>
-            <th>
-            <td>
-                <h2>Spell Name</h2>
-                <input type="text" id="search">
-                <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)">
 
-                <table id="list" frame="box" style="margin-top: 10px; width: 25%; height: 50%; position: fixed">
-                    <tbody style="display:block; width:100%; height:100%; overflow:auto">
+        <h2>Spell Name</h2>
+        <input type="text" id="search">
+        <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)">
 
-                    </tbody>
-                </table>
 
-                <a href="./spell-add.html" target="_blank" style="position: absolute; top:75%">
-                    <button class="cssbutton">Add</button>
-                </a>
-            </td>
-            <td>
-                <h2>Spell Information</h2>
+        <table id="list" frame="box" style="margin-top: 10px; width: 25%; height: 50%; position: fixed">
+            <thead style="display:block; width:100%">
+                <th style="width: 100%">
+                    <input type="button" class="sort" value="name" onClick="sortTableName()">
+                </th>
+                <th style="float:right">
+                    <input type="button" class="sort" value="level" onclick="sortTableLevel()">
+                </th>
+            </thead>
+            <tbody id="body" style="display:block; width:100%; height:89%; overflow:auto">
 
-            </td>
-            </th>
+            </tbody>
         </table>
-    </div>
 
+        <a href="./spell-add.html" target="_blank" style="position: absolute; top:75%">
+            <button class="cssbutton">Add</button>
+        </a>
+        <div class="split right" style="margin-top: 32px">
+            <h2 id="name" style="margin-right: 15%">
+                Spell Description
+            </h2>
+            <div id="spellinfo" style="overflow: auto; height: 70vh; visibility: hidden">
+                <h4>
+                    Components
+                </h4>
+                <p id="comp" style="margin-right: 15%"></p>
+                <h4>
+                    Duration
+                </h4>
+                <p id="dur" style="margin-right: 15%"></p>
+                <h4>
+                    Range
+                </h4>
+                <p id="range" style="margin-right: 15%"></p>
+                <h4>
+                    School
+                </h4>
+                <p id="school" style="margin-right: 15%"></p>
+                <h4>
+                    Description
+                </h4>
+                <p id="desc" style="margin-right: 15%"></p>
+            </div>
+
+        </div>
+    </div>
+    <input type="button" class="cssbutton" value="Refresh" style="margin-top: 10px; margin-right: 10px; float: right" onclick="location.reload()">
     <script>
         var json;
         var table = document.getElementById("list");
@@ -53,22 +81,22 @@
             json = data;
             $.each(data.spells, function (i, f) {
                 $.each(f, function (a, b) {
-                    var tblRow = "<tr id='row' style='width:1000px'>" + "<td >" + a + "</td>" + "</tr>"
+                    var tblRow = "<tr onClick='rowClick(this)'>" + "<td style='width:94.9%'>" + a + "</td>" + "<td>" + b.level + "</td>" + "</tr>"
                     $("#list tbody").append(tblRow);
                 })
 
             })
+            highlightRow()
         })
 
-        $(document).ready(function () {
-            $("#addb").click(function () {
-                window.open("./spells.html", "_blank")
-                window.alert("add")
-            })
-        })
-
-        function open_child() {
-            //childWindow = window.open("./spell-add.html", "_blank")
+        // should highlight selected row
+        function highlightRow() {
+            $("#body tr").click(function () {
+                var selected = $(this).hasClass("highlight");
+                $("#body tr").removeClass("highlight");
+                if (!selected)
+                    $(this).addClass("highlight");
+            });
         }
 
         // function to delete a row
@@ -85,17 +113,79 @@
                 if (row.cells[0].innerText === name) {
                     row.cells[0].scrollIntoView()
                     // todo - add highlight to row that is found
-                    //row.css("background-color", "#ffffff");
                 }
             }
         }
 
+        function rowClick(row) {
+            $.each(json.spells, function (i, f) {
+                $.each(f, function (a, b) {
+                    if (String(a) === row.cells[0].innerText) {
+                        selected = { a, b };
+                        document.getElementById("spellinfo").style.visibility = "visible";
+                        document.getElementById("name").innerHTML = a;
+                        document.getElementById("comp").innerHTML = b.components;
+                        document.getElementById("dur").innerHTML = b.duration;
+                        document.getElementById("range").innerHTML = b.range;
+                        document.getElementById("school").innerHTML = b.school;
+                        document.getElementById("desc").innerHTML = b.description;
+                        return;
+                    }
+                })
+
+            });
+        }
+
+        // resets the values in the input boxes
         function clearInput() {
-            // resets the values in the input boxes
             document.getElementById("name").value = ""
             document.getElementById("type").value = ""
             document.getElementById("rollnum").value = ""
             document.getElementById("rolltype").value = ""
+        }
+
+        function sortTableLevel() {
+            var rows, switching, i, x, y, shouldSwitch;
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = parseInt(rows[i].cells[1].innerText, 10);
+                    y = parseInt(rows[i + 1].cells[1].innerText, 10);
+                    if (x > y) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
+        }
+
+        function sortTableName() {
+            var rows, switching, i, x, y, shouldSwitch;
+            switching = true;
+            while (switching) {
+                switching = false;
+                rows = table.rows;
+                for (i = 1; i < (rows.length - 1); i++) {
+                    shouldSwitch = false;
+                    x = rows[i].cells[0].innerText
+                    y = rows[i + 1].cells[0].innerText
+                    if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+                        shouldSwitch = true;
+                        break;
+                    }
+                }
+                if (shouldSwitch) {
+                    rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                    switching = true;
+                }
+            }
         }
 
         function open() {

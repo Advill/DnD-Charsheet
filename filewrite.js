@@ -22,9 +22,7 @@ app.post('/post', function (req, res) {
     fs.writeFile('./jsonsrc/charsheet.json', strjson, 'utf8', function (err) {
         if (err) console.log(err)
     });
-
     console.log("Writing to file...")
-    console.log(json.spells)
 });
 
 app.listen(8991);

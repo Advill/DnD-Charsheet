@@ -19,30 +19,45 @@
     <div class="saddframe">
 
         <div class="split left">
-            <h2><b>Spell Name</b></h2>
-            <input type="text" id="search" style = "width: 40vh;">
+            <h2>
+                <b>Spell Name</b>
+            </h2>
+            <input type="text" id="search" style="width: 40vh;">
             <input type="button" class="cssbutton" value="Search" onclick="search(document.getElementById('search').value)" style="width: 20vh">
 
             <table id="list" frame="box" style="margin-top: 5%; margin-bottom: 5%; width: 60vh; height: 50vh">
-                <tbody style="display:block; width:100%; height:100%; overflow:auto">
+                <tbody id="body" style="display:block; width:100%; height:100%; overflow:auto">
 
                 </tbody>
             </table>
             <input class="cssbutton" type="button" id="addb" value="Add">
+            <input class="cssbutton" type="button" id="addb2" value="Add/Close">
 
         </div>
         <div class="split right" style="margin-bottom: 10%">
-            <h2 id="name" style="margin-right: 15%"><b>Spell Description</b></h2>
+            <h2 id="name" style="margin-right: 15%">
+                <b>Spell Description</b>
+            </h2>
             <div id="spellinfo" style="overflow: auto; height: 70vh; visibility: hidden">
-                <h4><b>Components</b></h4>
+                <h4>
+                    <b>Components</b>
+                </h4>
                 <p id="comp" style="margin-right: 15%"></p>
-                <h4><b>Duration</b></h4>
+                <h4>
+                    <b>Duration</b>
+                </h4>
                 <p id="dur" style="margin-right: 15%"></p>
-                <h4><b>Range</b></h4>
+                <h4>
+                    <b>Range</b>
+                </h4>
                 <p id="range" style="margin-right: 15%"></p>
-                <h4><b>School</b></h4>
+                <h4>
+                    <b>School</b>
+                </h4>
                 <p id="school" style="margin-right: 15%"></p>
-                <h4><b>Description</b></h4>
+                <h4>
+                    <b>Description</b>
+                </h4>
                 <p id="desc" style="margin-right: 15%"></p>
             </div>
         </div>
@@ -62,6 +77,7 @@
             var tblRow = "<tr id='row' onClick='rowClick(this)'>" + "<td style='width:1000px'>" + i + "</td>" + "</tr>";
             $("#list tbody").append(tblRow);
         });
+        highlightRow()
     });
 
     $.getJSON('../jsonsrc/charsheet.json', function (data) {
@@ -70,10 +86,22 @@
 
     $(document).ready(function () {
         $("#addb").click(function () {
-            //alert(selected.f.school);
             addRow()
         });
+        $("#addb2").click(function () {
+            addRow()
+            self.close()
+        });
     });
+
+    function highlightRow() {
+        $("#list td").click(function () {
+            var selected = $(this).hasClass("highlight");
+            $("#list td").removeClass("highlight");
+            if (!selected)
+                $(this).addClass("highlight");
+        });
+    }
 
     // search function pulled from main 
     function search(name) {
