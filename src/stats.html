@@ -31,7 +31,21 @@
 		})
 		
 		$(document).ready(function () {
-			$
+			$("#addb").click(function () {
+				addrow()
+			})
+		})
+
+		// Function to add a row to the table
+		function addRow() {
+			var name = document.getElementById("name").value;
+			var type = document.getElementById("score").value;
+			
+			// test if inputs are empty
+			if (name === "" || score === "") {
+				return
+			}
+		}
 
     </script>
 </body>
