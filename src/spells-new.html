@@ -42,6 +42,8 @@
         <a href="./spell-add.html" target="_blank" style="position: absolute; top:75%">
             <button class="cssbutton">Add</button>
         </a>
+        <input type="button" class="cssbutton" value="Delete" style="position: absolute; top:75%; left:30%" onclick="deleteRow()">
+
         <div class="split right" style="margin-top: 32px">
             <h2 id="name" style="margin-right: 15%">
                 Spell Description
@@ -84,7 +86,6 @@
                     var tblRow = "<tr onClick='rowClick(this)'>" + "<td style='width:94.9%'>" + a + "</td>" + "<td>" + b.level + "</td>" + "</tr>"
                     $("#list tbody").append(tblRow);
                 })
-
             })
             highlightRow()
         })
@@ -100,11 +101,15 @@
         }
 
         // function to delete a row
-        function deleteRow(element) {
-            var delIndex = element.parentNode.parentNode.rowIndex
-            table.deleteRow(delIndex)
-            json.spells.splice(delIndex, 1)
-            writeToFile(json)
+        function deleteRow() {
+            //var delIndex = element.parentNode.parentNode.rowIndex
+            //table.deleteRow(delIndex)
+            var row = document.getElementsByClassName("highlight")[0]
+            //var firstCol = row.getElementsbyTagName("TD")[0]
+            alert(row.innerHTML)
+            //json.spells.splice(delIndex, 1)
+            //writeToFile(json)
+            //location.reload()
         }
 
         // function to search - scrolls to searched term
@@ -186,6 +191,31 @@
                     switching = true;
                 }
             }
+        }
+
+        function writeToFile(json) {
+            $.ajax({
+                url: "http://localhost:3000/post",
+                type: "POST",
+                dataType: "text",
+                data: {
+                    j: JSON.stringify(json)
+                },
+                timeout: 5000,
+                complete: function () {
+                    //called when complete
+                    console.log('process complete')
+                },
+
+                success: function (data) {
+                    console.log(data);
+                    console.log('process sucess')
+                },
+
+                error: function () {
+                    console.log('process error')
+                },
+            })
         }
 
         function open() {

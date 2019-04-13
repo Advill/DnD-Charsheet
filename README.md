@@ -13,4 +13,12 @@ install package dependencies through npm, then simply run
 
 `electron .`
 
+## Screenshots
+
+### Spells Page
+![Spells Page](/img/main-spells.png)
+
+### Adding New Spells
+![Spells Add New Page](/img/main-spells-addexisting.png)
+
 5e spells json from [here](https://github.com/tadzik/5e-spells/blob/master/spells.json)
