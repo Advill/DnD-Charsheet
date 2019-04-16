@@ -117,14 +117,6 @@
             clearInput()
         }
 
-        // function to delete a row
-        function deleteRow(element) {
-            var delIndex = element.parentNode.parentNode.rowIndex
-            table.deleteRow(delIndex)
-            json.spells.splice(delIndex, 1)
-            writeToFile(json)
-        }
-
         // function to search - scrolls to searched term
         function search(name) {
             for (var i = 0, row; row = table.rows[i], i < table.rows.length; i++) {
