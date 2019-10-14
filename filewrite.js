@@ -1,3 +1,7 @@
+/*
+ * Starts server on port 8991. Listens for post requests (character sheet json) to be written locally to a file.
+ */
+
 var express = require('express');
 var app = express();
 var fs = require('fs');
